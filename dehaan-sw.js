@@ -1,5 +1,11 @@
 
 
+var CACHE_VERSION = 1;
+//console.log("current version:", CACHE_VERSION);
+var CURRENT_CACHES = {
+  main_cache: 'cache-v' + CACHE_VERSION
+};
+
 function prefetch_page(request_url) {
   var fetchRequest = request_url;
   return fetch(fetchRequest, { credentials: 'include' }).then(
