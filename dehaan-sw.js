@@ -1,10 +1,24 @@
 
 
-var CACHE_VERSION = 1;
+var CACHE_VERSION = 2;
 //console.log("current version:", CACHE_VERSION);
 var CURRENT_CACHES = {
   main_cache: 'cache-v' + CACHE_VERSION
 };
+
+
+this.addEventListener('install', function(event) {
+  // console.log('activate');
+  delswcaches();
+  
+});
+
+this.addEventListener('activate', function(event) {
+  // console.log('activate');
+  delswcaches();
+  
+});
+
 
 function prefetch_page(request_url) {
   var fetchRequest = request_url;

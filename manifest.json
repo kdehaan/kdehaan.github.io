@@ -15,11 +15,16 @@
     {
       "src": "favicon.ico",
       "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "favicon.ico",
+      "type": "image/png",
       "sizes": "192x192"
     }
   ],
   "start_url": "index.html?launcher=true",
-  "background_color": "#a4a4FF",
-  "theme_color": "#000000",
+  "background_color": "#000000",
+  "theme_color": "#FFFFFF",
   "display": "standalone"
 }
