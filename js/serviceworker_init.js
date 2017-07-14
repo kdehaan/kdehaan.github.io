@@ -13,7 +13,7 @@
         }
 			}
 			else{
-				navigator.serviceWorker.register('/dehaan-sw', 
+				navigator.serviceWorker.register('/dehaan-sw.js', 
 				{scope: '/'}) 
 			  .then(function(reg) {
 				// registration worked
