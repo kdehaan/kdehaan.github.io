@@ -3,13 +3,23 @@
  * Copyright 2013-2017 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
+ 
+/*  new content   */
+
+.feather {
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: scroll;
+  background-size: auto 40%;
+
+}
+
+/*  end new content   */
 body {
   font-family: 'Lora', 'Times New Roman', serif;
   font-size: 20px;
   color: #333333;
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: auto 40%;
+
 }
 p {
   line-height: 1.5;

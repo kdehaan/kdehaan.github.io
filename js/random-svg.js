@@ -2,6 +2,7 @@
 
 function randomizeSvg( svgname, classname ) {
   var svgdoc;
+  console.log(svgname, 'found again');
   var shades = [
 	'#d3d3d3',
 	'#bdbdbd',
@@ -13,9 +14,10 @@ function randomizeSvg( svgname, classname ) {
 	'#696969',
 	'#7e7e7e'
 	];
+  console.log(svgname.contentDocument);
   svgname.addEventListener("load", function() {
+    console.log('here')
     svgdoc = svgname.contentDocument;
-    console.log(svgdoc);
     splashFeathers = svgdoc.getElementsByClassName(classname);
     for (var i=0; i<splashFeathers.length; i++) {
       randomShade = shades[Math.floor(Math.random()*shades.length)];
