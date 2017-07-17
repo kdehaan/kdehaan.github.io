@@ -39,13 +39,10 @@
 
     
     <script>
-      var link = document.querySelector('link[rel="import"]');
-      var content = link.import;
-
-      // Grab DOM from warning.html's document.
-      var el = content.querySelector('.navbar navbar-default navbar-custom navbar-fixed-top');
-
-      document.body.appendChild(el.cloneNode(true));
+      var htmlImport = document.querySelector('link[rel="import"]');
+      var htmlDoc = htmlImport.import;
+      var htmlMessage = htmlDoc.querySelector('.message-success');
+      document.body.appendChild(htmlMessage.cloneNode(true));
     </script>
     
     <!-- Page Header -->
