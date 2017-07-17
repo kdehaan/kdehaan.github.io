@@ -32,22 +32,32 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <script src="js/random-svg.js"></script>
     
 
 </head>
 
-<body>
-    <div w3-include-html="html/header.html"></div>
+<body background="img/splash-feathers.svg">
+    <!-- navbar -->
+    <div w3-include-html="html/navbar.html"></div>
     <script>
       w3.includeHTML();
     </script>
+    <!-- navbar end -->
     
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <script type-"text/javascript">
-    var splashimg = "img/feathers/splash" + (Math.floor(Math.random() * 9) + 1) + '.svg'
-    document.write("<header class='intro-header' style='background-image: url(" + splashimg + ")'>");
-    </script>
+    <header class="intro-header">
+    <!-- <object id="feather-splash" type="image/svg+xml" data="img/splash-feathers.svg"></object> -->
+    <!-- <script> -->
+      <!-- var featherSvg = document.getElementById("feather-splash"); -->
+      <!-- randomizeSvg(featherSvg, "feather"); -->
+      
+    <!-- </script> -->
+    <!-- <script type-"text/javascript"> -->
+    <!-- var splashimg = "img/feathers/splash" + (Math.floor(Math.random() * 9) + 1) + '.svg' -->
+    <!-- document.write("<header class='intro-header' style='background-image: url(" + splashimg + ")'>"); -->
+    <!-- </script> -->
     <!-- <header class="intro-header" style="background-image: url('img/splash.svg')"> -->
         <div class="container">
             <div class="row">
@@ -130,6 +140,8 @@
 
     <!-- Theme JavaScript -->
     <script src="js/clean-blog.min.js"></script>
+    
+    
 
 </body>
 
