@@ -32,18 +32,22 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script src="js/webcomponents-lite.js"></script>
-    <link rel="import" href="html/header.html">
+    <link rel="import" href="import-header.html">
 
 </head>
 
 <body>
 
-    
+    <import-header></import-header>
     <script>
-      var htmlImport = document.querySelector('link[rel="import"]');
-      var htmlDoc = htmlImport.import;
-      var htmlMessage = htmlDoc.querySelector('.navbar');
-      document.body.appendChild(htmlMessage.cloneNode(true));
+      window.addEventListener('WebComponentsReady', function() {
+        // At this point we are guaranteed that all required polyfills have loaded,
+        // all HTML imports have loaded, and all defined custom elements have upgraded
+        let MyElement = customElements.get('import-header');
+        let element = document.querySelector('import-header');
+        console.assert(element instanceof MyElement);  // 👍
+        element.someAPI(); // 👍
+      });
     </script>
     
     <!-- Page Header -->
