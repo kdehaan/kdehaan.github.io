@@ -38,16 +38,11 @@
 
 <body>
 
-    <import-header></import-header>
     <script>
-      window.addEventListener('WebComponentsReady', function() {
-        // At this point we are guaranteed that all required polyfills have loaded,
-        // all HTML imports have loaded, and all defined custom elements have upgraded
-        let MyElement = customElements.get('import-header');
-        let element = document.querySelector('import-header');
-        console.assert(element instanceof MyElement);  // 👍
-        element.someAPI(); // 👍
-      });
+      var htmlImport = document.querySelector('link[rel="import"]');
+      var htmlDoc = htmlImport.import;
+      var htmlMessage = htmlDoc.querySelector('.navbar');
+      document.body.appendChild(htmlMessage.cloneNode(true));
     </script>
     
     <!-- Page Header -->
