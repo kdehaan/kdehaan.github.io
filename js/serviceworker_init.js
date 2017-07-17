@@ -12,18 +12,18 @@
           // console.log('no message');
         }
 			}
-			else{
-				navigator.serviceWorker.register('/dehaan-sw.js', 
-				{scope: '/'}) 
-			  .then(function(reg) {
-				// registration worked
-				// console.log('Registration succeeded. Scope is ' + reg.scope);
+			// else{
+				// navigator.serviceWorker.register('/dehaan-sw.js', 
+				// {scope: '/'}) 
+			  // .then(function(reg) {
+				////registration worked
+				////console.log('Registration succeeded. Scope is ' + reg.scope);
 				
-			  }).catch(function(error) {
-				// registration failed
-				console.log('Registration failed with ' + error);
-			  });
-			}
+			  // }).catch(function(error) {
+				////registration failed
+				// console.log('Registration failed with ' + error);
+			  // });
+			// }
 			
 		} else {
       console.log('No appropriate scope for serviceworker');

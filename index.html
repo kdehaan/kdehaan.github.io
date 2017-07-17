@@ -31,12 +31,22 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <link rel="import" href="html/header.html">
 
 </head>
 
 <body>
 
-    <link rel="import" href="html/header.html" >
+    
+    <script>
+      var link = document.querySelector('link[rel="import"]');
+      var content = link.import;
+
+      // Grab DOM from warning.html's document.
+      var el = content.querySelector('.navbar navbar-default navbar-custom navbar-fixed-top');
+
+      document.body.appendChild(el.cloneNode(true));
+    </script>
     
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
