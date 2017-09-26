@@ -2308,7 +2308,7 @@
 		input[type="button"].special,
 		button.special,
 		.button.special {
-			background-color: #ed4933;
+			background-color: rgba(61, 123, 179, 0.66); /* #50a6f4, #3d7bb3 */ 
 			box-shadow: none !important;
 			color: #ffffff !important;
 		}
@@ -2318,7 +2318,7 @@
 			input[type="button"].special:hover,
 			button.special:hover,
 			.button.special:hover {
-				background-color: #ef5e4a !important;
+				background-color: rgb(97, 183, 214) !important; /* #61b7d6 */
 			}
 
 			input[type="submit"].special:active,
@@ -2641,8 +2641,8 @@
 		}
 
 		.wrapper.style1 {
-			background-color: #21b2a6;
-			color: #c7ebe8;
+			background-color: #3d7bb3;
+			color: #61b7d6;
 		}
 
 			.wrapper.style1 strong, .wrapper.style1 b {
