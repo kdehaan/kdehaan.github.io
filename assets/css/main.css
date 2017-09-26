@@ -1922,15 +1922,15 @@
 			}
 
 		.icon.style1 {
-			color: #00ffcc;
+			color: #ffffff;
 		}
 
 		.icon.style2 {
-			color: #00f0ff;
+			color: #ffffff;
 		}
 
 		.icon.style3 {
-			color: #76ddff;
+			color: #ffffff;
 		}
 
 /* Image */
@@ -2428,7 +2428,7 @@
 
 			.features li:before {
 				display: block;
-				color: #00ffcc;
+				color: #ffffff
 				position: absolute;
 				left: 1.75em;
 				top: 2.75em;
@@ -2730,7 +2730,7 @@
 			}
 
 			.wrapper.style1 .icon.major {
-				border-color: rgba(0, 0, 0, 0.125);
+				border-color: rgba(0, 0, 0, 0.3);
 			}
 
 			.wrapper.style1 ul.alt li {
@@ -2799,8 +2799,8 @@
 		}
 
 		.wrapper.style3 {
-			background-color: #505393;
-			color: #d3d4e4;
+			background-color: #305f8a;
+			color: #ffffff
 		}
 
 			.wrapper.style3 strong, .wrapper.style3 b {
@@ -2832,7 +2832,7 @@
 			}
 
 			.wrapper.style3 header.major p {
-				color: #d3d4e4;
+				color: #ffffff;
 			}
 
 			.wrapper.style3 label {
