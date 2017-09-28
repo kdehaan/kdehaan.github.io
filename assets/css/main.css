@@ -1889,6 +1889,11 @@
 			display: none;
 		}
 
+		.icon.header {
+			text-align: right;
+			position: absolute;
+			font-size: 1.5em;
+		}
 		.icon.major {
 			-moz-transform: rotate(-45deg);
 			-webkit-transform: rotate(-45deg);
@@ -1903,6 +1908,9 @@
 			text-align: center;
 			width: calc(3em + 2px);
 		}
+			.icon.major:hover {
+				color: #5e6c73;
+			}
 
 			.icon.major:before {
 				-moz-transform: rotate(45deg);
@@ -2433,6 +2441,7 @@
 				left: 1.75em;
 				top: 2.75em;
 				font-size: 1.5em;
+				
 			}
 
 			.features li:nth-child(1) {
@@ -3264,6 +3273,7 @@
 		z-index: 10000;
 	}
 
+
 		#header h1 {
 			-moz-transition: opacity 0.2s ease;
 			-webkit-transition: opacity 0.2s ease;
@@ -3275,6 +3285,11 @@
 			position: absolute;
 			top: 0;
 		}
+			/* #header h1.subheader{
+				position: absolute; 
+				right: 0; 
+				margin: 0 1em 0 0;
+			} */
 
 			#header h1 a {
 				border: 0;
