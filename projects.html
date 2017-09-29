@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Projects - de Haan</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1 style="font-variant:small-caps"><a href="index.html">de Haan</a></h1>
+						<nav>
+							<h1>
+								<a href="readinglist.html" style="right:3em" class="icon header fa-book"><span class="label">Reading List</span></a>
+								<a href="checkout.html" style="right:6em" class="icon header fa-user"><span class="label">Projects</span></a>
+								<a href="projects.html" style="right:9em" class="icon header fa-cogs"><span class="label">Projects</span></a>
+							</h1>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<article id="main">
+						<header>
+							<h2>Projects</h2>
+							<p>Tools and Toys</p>
+						</header>
+						<section id="two" class="wrapper alt style2">
+							<section class="spotlight">
+								<a href="https://github.com/ishchow/alexa_chess" class="image"><img src="images/chessboard.png" alt="Chessboard" /></a><div style="padding-bottom:4em" class="content">
+									<h2><a href="https://github.com/ishchow/alexa_chess">Alexa Chess</a></h2>
+									<p>HackEd Hackathon January 2017: In twenty-four hours, myself and four teammates put together a voice-activated and controlled chess game using Amazon's Alexa API.
+									Hosted on a local server, the main framework for the game is Flask, a python-based web server.</p>
+
+									<p>Many lessons learned. First, Alexa is not designed for continued interaction, but instead small question-answer blocks of speech.
+									We jumped through many hoops to force the voice recognition process to function continually. Additionally, 24 hours is almost, but not quite, enough time to
+									teach yourself CSS, HTML, and Flask, all at the same time. Revisiting a similar project with my current experience would be significantly easier.</p>
+									<a href="https://github.com/ishchow/alexa_chess"><span class="label">More&nbsp;&nbsp;<span class="icon fa-chevron-right"/></span></a>
+								</div>
+							</section>
+							<section class="spotlight">
+								<a href="https://github.com/kdehaan/IZbot" class="image"><img src="images/izbot.png" alt="" /></a><div style="padding-bottom:4em" class="content">
+									<h2><a href="https://github.com/kdehaan/IZbot">The IZ Discord Bot</a></h2>
+									<p>A friend of mine wanted a way to tell when people entered or left a voice channel - by name. The default behavior is a beep that gives you no other information.</p>
+									<p>So I made him a bot.</p>
+									<p>As an aside, I don't recommend Python for creating Discord bots. The docs are... lacking.</p>
+
+									<a href="https://github.com/kdehaan/IZbot"><span class="label">More&nbsp;&nbsp;<span class="icon fa-chevron-right"/></span></a>
+								</div>
+							</section>
+							<section class="spotlight">
+								<a href="https://github.com/kdehaan/InPoly" class="image"><img src="images/inpoly.png" alt="" /></a><div style="padding-bottom:4em" class="content">
+									<h2><a href="https://github.com/kdehaan/InPoly">Arbitrary Point-in-Polygon Detector</a></h2>
+									<p>I was approached by a friend who had a problem at his workplace, and wanted some guidance: given an arbitrary polygon defined by N cartesian vertices, determine whether a point P lies within the polygon.
+									Uses some neat tricks to calculate vector rays without requiring third-party packages.</p>
+									<p>Why is it important that there are no imports or packages?</p>
+									<p>Because the poor bastard had to go implement it in VBA, and I felt bad enough already.</p>
+
+									<a href="https://github.com/kdehaan/InPoly"><span class="label">More&nbsp;&nbsp;<span class="icon fa-chevron-right"/></span></a>
+								</div>
+							</section>
+ 							<section class="spotlight">
+								<a href="https://github.com/kdehaan/dotsandboxes" class="image"><img src="images/dotsandboxes.png" alt="" /></a><div style="padding-bottom:4em" class="content">
+									<h2><a href="https://github.com/kdehaan/dotsandboxes">Dots and Boxes</a></h2>
+									<p>Created with Alex Chen, Dots and Boxes is a tkinter implemention of the traditional game of dots and boxes that focuses on efficiently managing the digital representation of
+									the game board. Our version of the game allows for fast, smart decision-making from the AI controlled player, picking a move in worst-case N * M (the square area of the board) time, often making moves
+									in constant time whenever possible</p>
+
+									<p>We initially approached the concept as an exercise in creating an AI, but quickly realized that it was more interesting to see how fast we could get it to play against itself.</p>
+									<p>(Usually it can do 1000 full games in about 1 second on a decent computer, though large boards tank the speed.)</p>
+									<a href="https://github.com/kdehaan/dotsandboxes"><span class="label">More&nbsp;&nbsp;<span class="icon fa-chevron-right"/></span></a>
+								</div>
+							</section>
+						</section>
+
+					</article>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="https://github.com/kdehaan" class="icon fa-github"><span class="label">Github</span></a></li>
+							<li><a href="https://www.linkedin.com/in/kbedehaan/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="checkout.html" class="icon fa-user"><span class="label">Cool People</span></a></li>
+ 							<li><a href="readinglist.html" class="icon fa-book"><span class="label">Reading List</span></a></li>
+							<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+						</ul>
+						<ul class="copyright">
+							<li>&copy; Kevin de Haan, 2017</li>
+						</ul>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
