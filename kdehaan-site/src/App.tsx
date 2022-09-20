@@ -8,11 +8,17 @@ import {
 import './App.css';
 import Root from './routes/Root'
 import NotFound from './routes/NotFound';
+import SpeedrunChart from './routes/SpeedrunChart';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root/>,
+    errorElement: <NotFound/>,
+  },
+  {
+    path: "/speedrunchart",
+    element: <SpeedrunChart/>,
     errorElement: <NotFound/>,
   },
 ]);
