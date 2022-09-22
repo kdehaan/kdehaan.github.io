@@ -6,7 +6,7 @@ interface RouteError {
   message: string;
 }
 
-function NotFound() {
+const NotFound = () => {
 
   const error = (useRouteError() as RouteError)
   console.error(error);
