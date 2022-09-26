@@ -4,29 +4,43 @@ import {
   createBrowserRouter,
   RouterProvider,
   Route,
+  createHashRouter,
 } from "react-router-dom";
 import './App.css';
 import Root from './routes/Root'
 import NotFound from './routes/NotFound';
 import SpeedrunChart from './routes/SpeedrunChart';
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
-    element: <Root/>,
-    errorElement: <NotFound/>,
-  },
-  {
-    path: "/speedrunchart",
     element: <SpeedrunChart/>,
     errorElement: <NotFound/>,
   },
+  // {
+  //   path: "/",
+  //   element: <Root/>,
+  //   errorElement: <NotFound/>,
+  // }
+
+  // {
+  //   path: "/",
+  //   element: <Root />,
+  //   children: [
+  //     {
+  //       path: "chart",
+  //       element: <SpeedrunChart />,
+  //     },
+  //   ],
+  // },
 ]);
 
 
 function App() {
   return (
-    <RouterProvider router={router}/>
+    <React.StrictMode>
+      <RouterProvider router={router}/>
+    </React.StrictMode>
   );
 }
 
