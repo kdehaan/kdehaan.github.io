@@ -7,8 +7,93 @@ const LINE_WIDTH = 0.6
 const baseDataSet = generateDataset().sort()
 console.log(baseDataSet)
 const colorScale = d3.scaleOrdinal().domain(baseDataSet.length.toString()).range(d3.schemeDark2)
+// let defaultTransition = d3.transition().duration(200).ease(d3.easeQuadInOut)
 
+const DefaultTransition = () => {
+  return d3.transition().duration(500).ease(d3.easePolyInOut)
+}
 
+const DrawVerticalLines = (
+    vLinesElement: d3.Selection<d3.BaseType, unknown, HTMLElement, any>,
+    dataPointElement: d3.Selection<d3.BaseType, unknown, HTMLElement, any>,
+    v_dataset: number[][],
+    dataset: number[][]
+  ) => {
+  vLinesElement
+  .selectAll("line")
+  .data(v_dataset)
+    .join(
+      (enter: any) =>
+        enter
+          .append("line")
+          .style("stroke-width", 0)
+          .style("stroke-linecap", "round")
+          .style("stroke", (d: number[], i: number) => colorScale(i.toString()) as string)
+          .attr("x1", (d: number[], i: number)=> d[0])
+          .attr("y1", (d: number[], i: number) => dataset[Math.max(0, i-1)][1]) 
+          .attr("x2", (d: number[], i: number)=> d[0])
+          .attr("y2", (d: number[], i: number) => dataset[Math.max(0, i-1)][1]) 
+          .call((enter: any) => {
+              enter
+                .transition()
+                .style("stroke-width", LINE_WIDTH)
+                .transition(DefaultTransition())
+                .attr("y2", (d: number[], i: number) => d[1])
+                .end()
+                .then(() => {
+                  DrawPoints(dataPointElement, v_dataset, dataset)
+                })
+            }
+          ),
+        (update: any) =>
+          update.call((update: any) =>
+            update
+              .transition(DefaultTransition())
+              // .style("stroke", (d: number[], i: number) => colorScale(i.toString()) as string)
+          ),
+        (exit: any) =>
+          exit.call((exit: any) =>
+            exit
+              .transition(DefaultTransition())
+              .remove()
+          ),
+    )
+}
+
+const DrawPoints = (
+  dataPointElement: d3.Selection<d3.BaseType, unknown, HTMLElement, any>, 
+  p_dataset: number[][], 
+  dataset: number[][]
+) => {
+  dataPointElement.selectAll("circle")
+  .data(p_dataset)
+  .join(
+    (enter: any) =>
+      enter
+        .append("circle")
+        .attr("fill", (d: number[], i: number) => colorScale(i.toString()) as string)
+        .attr("cx", (d: number[])=> d[0])
+        .attr("cy", (d: number[]) => d[1])
+        .attr("r",  0)
+        .call((enter: any) => {
+            enter
+            .transition(DefaultTransition())
+            .attr("r",  1)
+          }
+        ),
+      (update: any) =>
+        update.call((update: any) =>
+          update
+            .transition(DefaultTransition())
+        ),
+      (exit: any) =>
+        exit.call((exit: any) =>
+          exit
+            .transition(DefaultTransition())
+            .remove()
+        ),
+  )
+}
 
 const SpeedrunChart = () => {
 
@@ -61,8 +146,9 @@ const SpeedrunChart = () => {
     //   .domain([10, 100])
 
     svgElement.on("click", () => {
-      setStage((stage + 1)  % 3)
-      setNumpoints(Math.min(numPoints + (stage === 2 ? 1 : 0), baseDataSet.length-1))
+      // setStage((stage + 1)  % 3)
+      // setNumpoints(Math.min(numPoints + (stage === 2 ? 1 : 0), baseDataSet.length-1))
+      setNumpoints(numPoints + 1)
       setDataset(baseDataSet.slice(0, numPoints))
     })
 
@@ -74,45 +160,6 @@ const SpeedrunChart = () => {
     let p_dataset = dataset.slice(0, dataset.length - (stage > 0 ? 1 : 0))
     console.log(p_dataset.length)
 
-    vLinesElement
-    .selectAll("line")
-    .data(v_dataset)
-      .join(
-        (enter: any) =>
-          enter
-            .append("line")
-            .style("stroke-width", LINE_WIDTH)
-            .style("stroke-linecap", "round")
-            .style("stroke", (d: number[], i: number) => colorScale(i.toString()) as string)
-            .attr("x1", (d: number[], i: number)=> d[0])
-            .attr("y1", (d: number[], i: number) => dataset[Math.max(0, i-1)][1]) 
-            .attr("x2", (d: number[], i: number)=> d[0])
-            .attr("y2", (d: number[], i: number) => dataset[Math.max(0, i-1)][1]) 
-            .call((enter: any) => {
-                enter
-                  .transition()
-                  .attr("y2", (d: number[], i: number) => d[1])
-                  // .transition()
-                  // .style("stroke-width", LINE_WIDTH*2)
-              }
-            ),
-          (update: any) =>
-            update.call((update: any) =>
-              update
-                .transition()
-                // .style("stroke", (d: number[], i: number) => colorScale(i.toString()) as string)
-            ),
-          (exit: any) =>
-            exit.call((exit: any) =>
-              exit
-                .transition()
-                .remove()
-            ),
-      )
-        
-        
-         
-          
     hLinesElement.selectAll("line")
     .data(h_dataset)
     .join(
@@ -128,24 +175,35 @@ const SpeedrunChart = () => {
           .attr("y2", (d: number[], i: number) => dataset[Math.max(0, i-1)][1])
           .call((enter: any) => {
               enter
-              .transition()
+              .transition(DefaultTransition())
               .attr("x2", (d: number[], i: number)=> d[0])
+              .end()
+              .then(() => {
+                DrawVerticalLines(vLinesElement, dataPointElement, h_dataset, dataset) 
+              })
               // .attr("y2", (d: number[], i: number) => d[1])
             }
           ),
         (update: any) =>
           update.call((update: any) =>
             update
-              .transition()
+              .transition(DefaultTransition())
               // .style("stroke", (d: number[], i: number) => colorScale(i.toString()) as string)
           ),
         (exit: any) =>
           exit.call((exit: any) =>
             exit
-              .transition()
+              .transition(DefaultTransition())
               .remove()
           ),
     )
+
+   
+       
+        
+         
+          
+    
       // .join("line")
       //   .style("stroke-width", LINE_WIDTH)
       //   .style("stroke-linecap", "round")
@@ -155,34 +213,7 @@ const SpeedrunChart = () => {
       //   .attr("x2", (d: number[], i: number)=> dataset[Math.min(dataset.length-1, i+1)][0])
       //   .attr("y2", (d: number[], i: number) => d[1])
 
-    dataPointElement.selectAll("circle")
-    .data(p_dataset)
-    .join(
-      (enter: any) =>
-        enter
-          .append("circle")
-          .attr("fill", (d: number[], i: number) => colorScale(i.toString()) as string)
-          .attr("cx", (d: number[])=> d[0])
-          .attr("cy", (d: number[]) => d[1])
-          .attr("r",  0)
-          .call((enter: any) => {
-              enter
-              .transition()
-              .attr("r",  1)
-            }
-          ),
-        (update: any) =>
-          update.call((update: any) =>
-            update
-              .transition()
-          ),
-        (exit: any) =>
-          exit.call((exit: any) =>
-            exit
-              .transition()
-              .remove()
-          ),
-    )
+    
 
     // const axisGenerator = d3.axisBottom(xScale)
     // svgElement.append("g")
