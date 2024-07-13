@@ -1,1 +1,1 @@
-export { default } from "./SpeedrunChart"
+export { default } from "./BookClub"
