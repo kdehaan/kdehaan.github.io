@@ -17,11 +17,11 @@ const router = createHashRouter([
     element: <SpeedrunChart/>,
     errorElement: <NotFound/>,
   },
-  // {
-  //   path: "/",
-  //   element: <Root/>,
-  //   errorElement: <NotFound/>,
-  // }
+  {
+    path: "/bookclub",
+    element: <BookClub/>,
+    errorElement: <NotFound/>,
+  }
 
   // {
   //   path: "/",
